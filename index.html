@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PageReady</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:grid;place-items:center;padding:16px;
+    background:radial-gradient(600px 300px at 50% 0,rgba(43,140,255,.22),transparent 70%),#020817;
+    font-family:'Poppins',system-ui,sans-serif;color:#f4f7ff;-webkit-font-smoothing:antialiased;
+  }
+  .card{
+    width:100%;max-width:400px;background:#0a1730;border:1px solid #14254a;
+    border-radius:22px;padding:26px 22px;
+  }
+  .brand{font-weight:700;font-size:18px}
+  .brand em{font-style:normal;color:#2b8cff}
+  h1{font-size:26px;line-height:1.2;font-weight:700;margin:14px 0 6px;letter-spacing:-.5px}
+  .sub{color:#9fb0d3;font-size:14px;margin-bottom:18px}
+  .item{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:14px 0;border-top:1px solid #14254a;
+  }
+  .name{font-weight:600;font-size:15px}
+  .price{color:#2b8cff;font-weight:700;font-size:18px}
+  .save{color:#2ee59d;font-size:12px;font-weight:600;margin-left:6px}
+  button{
+    font-family:inherit;font-weight:600;font-size:14px;cursor:pointer;border:0;
+    background:#f3f5fa;color:#0b1220;padding:10px 18px;border-radius:999px;white-space:nowrap;
+  }
+  button:hover{background:#fff}
+  .best button{background:#2b8cff;color:#fff}
+  .note{text-align:center;color:#9fb0d3;font-size:12px;margin-top:14px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">Page<em>Ready</em></div>
+    <h1>Get Your Account Set Up Today.</h1>
+    <p class="sub">Professional social media account setup, made simple.</p>
+
+    <div class="item">
+      <div><div class="name">Facebook Page Creation</div><div class="price">₦5,000</div></div>
+      <button data-order="Facebook Page Creation (₦5,000)">Get yours</button>
+    </div>
+
+    <div class="item">
+      <div><div class="name">UK TikTok Account</div><div class="price">₦7,000</div></div>
+      <button data-order="UK TikTok Account Setup (₦5,000)">Get yours</button>
+    </div>
+
+    <p class="note">✓ You own your account</p>
+  </div>
+
+<script>
+  // Put your WhatsApp number here (international format, no + or spaces)
+  const WHATSAPP_NUMBER = "234XXXXXXXXXX";
+
+  document.querySelectorAll("[data-order]").forEach(b => {
+    b.addEventListener("click", () => {
+      const msg = "Hello PageReady, I want to order: " + b.dataset.order + ".";
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+    });
+  });
+</script>
+</body>
+</html>
